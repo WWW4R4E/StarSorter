@@ -1,0 +1,138 @@
+# ============================
+# 通用忽略规则
+# ============================
+
+# 日志文件
+*.log
+*.log.*
+*.txt.log
+
+# 临时文件
+*.tmp
+*.temp
+*.swp
+*.swo
+*~
+
+# 备份文件
+*.bak
+*.backup
+*.old
+
+# 编辑器/IDE 目录
+.vscode/
+.idea/
+.zed/
+*.swp
+*.swo
+*~.nib
+.DS_Store
+Thumbs.db
+
+# 操作系统文件
+Desktop.ini
+$RECYCLE.BIN/
+
+# ============================
+# .NET 项目
+# ============================
+
+# 构建输出
+bin/
+obj/
+*.dll
+*.exe
+*.pdb
+*.xml
+*.json
+
+# NuGet 包
+packages/
+*.nupkg
+.nuget/
+project.assets.json
+*.lock.json
+
+# 测试结果
+TestResults/
+*.trx
+
+# ============================
+# Zig 项目
+# ============================
+
+# 构建输出
+zig-out/
+.zig-cache/
+*.dll
+*.so
+*.dylib
+*.a
+*.lib
+
+# Zig 工具链
+zig.exe
+zig
+
+# ============================
+# Android/Jetpack Compose 项目
+# ============================
+
+# Gradle 构建输出
+compose/app/build/
+.gradle/
+*.apk
+*.aab
+*.aar
+
+# 本地配置
+local.properties
+
+# 签名文件
+*.keystore
+*.jks
+*.p12
+
+# 构建缓存
+.cxx/
+.externalNativeBuild/
+
+# ============================
+# WinUI 3 项目
+# ============================
+
+# MSIX 包
+*.msix
+*.msixbundle
+*.msixupload
+
+# Windows 应用包
+AppPackages/
+BundleArtifacts/
+
+# 发布目录
+Publish/
+
+# 应用数据
+ApplicationData/
+
+# ============================
+# 构建脚本
+# ============================
+
+
+
+# ============================
+# 特定于本项目的规则
+# ============================
+
+# 项目特定的构建输出
+core/zig-out/
+core/zig-cache/
+winui/bin/
+winui/obj/
+compose/app/build/
+compose/.gradle/
+
+# 生成的绑定代码
+bindings/generated/

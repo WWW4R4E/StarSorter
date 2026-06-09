@@ -1,0 +1,14 @@
+--file
+./include/github_stars.h
+--namespace
+StarSorter.Native
+--output
+./Generated/
+--libraryPath
+github_stars.dll
+--config
+latest-codegen
+--config
+generate-helper-types
+--config
+multi-file

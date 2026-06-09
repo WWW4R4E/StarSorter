@@ -1,0 +1,167 @@
+<Project Sdk="Microsoft.NET.Sdk">
+	<PropertyGroup>
+		<OutputType>WinExe</OutputType>
+		<TargetFramework>net10.0-windows10.0.26100.0</TargetFramework>
+		<TargetPlatformMinVersion>10.0.17763.0</TargetPlatformMinVersion>
+		<RootNamespace>StarSorter</RootNamespace>
+		<Platforms>x86;x64;ARM64</Platforms>
+		<RuntimeIdentifiers>win-x86;win-x64;win-arm64</RuntimeIdentifiers>
+		<RuntimeIdentifier Condition="'$(RuntimeIdentifier)' == ''">win-$([System.Runtime.InteropServices.RuntimeInformation]::ProcessArchitecture.ToString().ToLowerInvariant())</RuntimeIdentifier>
+		<PublishProfile Condition="Exists('Properties\PublishProfiles\win-$(Platform).pubxml')">win-$(Platform).pubxml</PublishProfile>
+		<UseWinUI>true</UseWinUI>
+		<WinUISDKReferences>false</WinUISDKReferences>
+		<EnableMsixTooling>true</EnableMsixTooling>
+		<Nullable>enable</Nullable>
+		<ImplicitUsings>enable</ImplicitUsings>
+		<AppDesignerFolder>Properties</AppDesignerFolder>
+	</PropertyGroup>
+	<ItemGroup>
+		<Content Include="Assets\BadgeLogo.png" />
+		<Content Include="Assets\BadgeLogo.scale-100.png" />
+		<Content Include="Assets\BadgeLogo.scale-125.png" />
+		<Content Include="Assets\BadgeLogo.scale-150.png" />
+		<Content Include="Assets\BadgeLogo.scale-200.png" />
+		<Content Include="Assets\BadgeLogo.scale-400.png" />
+		<Content Include="Assets\LargeTile.png" />
+		<Content Include="Assets\LargeTile.scale-100.png" />
+		<Content Include="Assets\LargeTile.scale-125.png" />
+		<Content Include="Assets\LargeTile.scale-150.png" />
+		<Content Include="Assets\LargeTile.scale-200.png" />
+		<Content Include="Assets\LargeTile.scale-400.png" />
+		<Content Include="Assets\SmallTile.png" />
+		<Content Include="Assets\SmallTile.scale-100.png" />
+		<Content Include="Assets\SmallTile.scale-125.png" />
+		<Content Include="Assets\SmallTile.scale-150.png" />
+		<Content Include="Assets\SmallTile.scale-200.png" />
+		<Content Include="Assets\SmallTile.scale-400.png" />
+		<Content Include="Assets\SplashScreen.png" />
+		<Content Include="Assets\SplashScreen.scale-100.png" />
+		<Content Include="Assets\SplashScreen.scale-125.png" />
+		<Content Include="Assets\SplashScreen.scale-150.png" />
+		<Content Include="Assets\SplashScreen.scale-200.png" />
+		<Content Include="Assets\SplashScreen.scale-400.png" />
+		<Content Include="Assets\Square150x150Logo.png" />
+		<Content Include="Assets\Square150x150Logo.scale-100.png" />
+		<Content Include="Assets\Square150x150Logo.scale-125.png" />
+		<Content Include="Assets\Square150x150Logo.scale-150.png" />
+		<Content Include="Assets\Square150x150Logo.scale-200.png" />
+		<Content Include="Assets\Square150x150Logo.scale-400.png" />
+		<Content Include="Assets\Square44x44Logo.png" />
+		<Content Include="Assets\Square44x44Logo.scale-100.png" />
+		<Content Include="Assets\Square44x44Logo.scale-125.png" />
+		<Content Include="Assets\Square44x44Logo.scale-150.png" />
+		<Content Include="Assets\Square44x44Logo.scale-200.png" />
+		<Content Include="Assets\Square44x44Logo.scale-400.png" />
+		<Content Include="Assets\Square44x44Logo.targetsize-16.png" />
+		<Content Include="Assets\Square44x44Logo.targetsize-24.png" />
+		<Content Include="Assets\Square44x44Logo.targetsize-32.png" />
+		<Content Include="Assets\Square44x44Logo.targetsize-48.png" />
+		<Content Include="Assets\Square44x44Logo.targetsize-256.png" />
+		<Content Include="Assets\Square44x44Logo.altform-unplated_targetsize-16.png" />
+		<Content Include="Assets\Square44x44Logo.altform-unplated_targetsize-24.png" />
+		<Content Include="Assets\Square44x44Logo.altform-unplated_targetsize-32.png" />
+		<Content Include="Assets\Square44x44Logo.altform-unplated_targetsize-48.png" />
+		<Content Include="Assets\Square44x44Logo.altform-unplated_targetsize-256.png" />
+		<Content Include="Assets\Square44x44Logo.altform-lightunplated_targetsize-16.png" />
+		<Content Include="Assets\Square44x44Logo.altform-lightunplated_targetsize-24.png" />
+		<Content Include="Assets\Square44x44Logo.altform-lightunplated_targetsize-32.png" />
+		<Content Include="Assets\Square44x44Logo.altform-lightunplated_targetsize-48.png" />
+		<Content Include="Assets\Square44x44Logo.altform-lightunplated_targetsize-256.png" />
+		<Content Include="Assets\StoreLogo.scale-100.png" />
+		<Content Include="Assets\StoreLogo.scale-125.png" />
+		<Content Include="Assets\StoreLogo.scale-150.png" />
+		<Content Include="Assets\StoreLogo.scale-200.png" />
+		<Content Include="Assets\StoreLogo.scale-400.png" />
+		<Content Include="Assets\Wide310x150Logo.png" />
+		<Content Include="Assets\Wide310x150Logo.scale-100.png" />
+		<Content Include="Assets\Wide310x150Logo.scale-125.png" />
+		<Content Include="Assets\Wide310x150Logo.scale-150.png" />
+		<Content Include="Assets\Wide310x150Logo.scale-200.png" />
+		<Content Include="Assets\Wide310x150Logo.scale-400.png" />
+	</ItemGroup>
+	<ItemGroup>
+		<None Remove="Views\HomePage.xaml" />
+		<None Remove="Views\NotificationsPage.xaml" />
+		<None Remove="Views\ProfilePage.xaml" />
+		<None Remove="Views\SettingsPage.xaml" />
+		<None Remove="Views\StarsPage.xaml" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<Manifest Include="$(ApplicationManifest)" />
+	</ItemGroup>
+
+	<!--
+    Defining the "Msix" ProjectCapability here allows the Single-project MSIX Packaging
+    Tools extension to be activated for this project even if the Windows App SDK Nuget
+    package has not yet been restored.
+  -->
+	<ItemGroup Condition="'$(DisableMsixProjectCapabilityAddedByProject)'!='true' and '$(EnableMsixTooling)'=='true'">
+		<ProjectCapability Include="Msix" />
+	</ItemGroup>
+	<ItemGroup>
+		<PackageReference Include="CommunityToolkit.Common" Version="8.4.2" />
+		<PackageReference Include="CommunityToolkit.Mvvm" Version="8.4.2" />
+		<PackageReference Include="CommunityToolkit.WinUI.Controls.SettingsControls" Version="8.3.260402-preview2" />
+		<PackageReference Include="Markdig" Version="1.2.0" />
+		<PackageReference Include="MarkWin2D" Version="0.6.1" />
+		<PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="11.0.0-preview.4.26230.115" />
+		<PackageReference Include="Microsoft.Extensions.Logging" Version="11.0.0-preview.4.26230.115" />
+		<PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="11.0.0-preview.4.26230.115" />
+		<PackageReference Include="Microsoft.Graphics.Win2D" Version="1.4.0" />
+		<PackageReference Include="Microsoft.Windows.SDK.BuildTools" Version="10.0.28000.1839" />
+		<PackageReference Include="Microsoft.WindowsAppSDK" Version="2.1.3" />
+		<PackageReference Include="Microsoft.Windows.SDK.BuildTools.WinApp" Version="0.3.2">
+			<IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+			<PrivateAssets>all</PrivateAssets>
+		</PackageReference>
+		<PackageReference Include="Microsoft.WindowsAppSDK.AI" Version="2.1.10" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<None Update="Native\github_stars.dll" Link="github_stars.dll">
+			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+		</None>
+	</ItemGroup>
+
+	<!--
+    Defining the "HasPackageAndPublishMenuAddedByProject" property here allows the Solution
+    Explorer "Package and Publish" context menu entry to be enabled for this project even if
+    the Windows App SDK Nuget package has not yet been restored.
+  -->
+	<PropertyGroup Condition="'$(DisableHasPackageAndPublishMenuAddedByProject)'!='true' and '$(EnableMsixTooling)'=='true'">
+		<HasPackageAndPublishMenu>true</HasPackageAndPublishMenu>
+	</PropertyGroup>
+
+	<!--
+		WinApp tool v0.3.1 bug: URL-encoded parentheses (%28 %29) in recipe paths
+		cause AppXManifest and all project-specific AppxPackagedFile entries to be
+		skipped during recipe layout (files in project dir with parentheses).
+		Copy all output files to AppX as a workaround.
+	-->
+	<Target Name="_CopyFilesToAppX" BeforeTargets="RunPackagedApp;_WinAppPrepareRunArguments">
+		<Exec Command="powershell -NonInteractive -Command &quot;Copy-Item -Recurse -Force -Path '$([MSBuild]::Escape($(OutputPath.TrimEnd('\'))))\*' -Destination '$([MSBuild]::Escape($(WinAppLooseLayoutPath.TrimEnd('\'))))' -Exclude 'publish','AppX'&quot;" Condition="'$(WindowsPackageType)' != 'None'" IgnoreExitCode="true" />
+	</Target>
+
+	<!-- Publish Properties -->
+	<PropertyGroup>
+		<PublishReadyToRun Condition="'$(Configuration)' == 'Debug'">False</PublishReadyToRun>
+		<PublishReadyToRun Condition="'$(Configuration)' != 'Debug'">True</PublishReadyToRun>
+		<PublishTrimmed Condition="'$(Configuration)' == 'Debug'">False</PublishTrimmed>
+		<PublishTrimmed Condition="'$(Configuration)' != 'Debug'">True</PublishTrimmed>
+		<PublishAot>True</PublishAot>
+		<AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+		<DefaultLanguage>zh-CN</DefaultLanguage>
+		<GenerateTemporaryStoreCertificate>True</GenerateTemporaryStoreCertificate>
+		<GenerateAppInstallerFile>False</GenerateAppInstallerFile>
+		<AppxPackageSigningEnabled>False</AppxPackageSigningEnabled>
+		<AppxPackageSigningTimestampDigestAlgorithm>SHA256</AppxPackageSigningTimestampDigestAlgorithm>
+		<AppxAutoIncrementPackageRevision>True</AppxAutoIncrementPackageRevision>
+		<GenerateTestArtifacts>False</GenerateTestArtifacts>
+		<AppxBundle>Never</AppxBundle>
+		<HoursBetweenUpdateChecks>0</HoursBetweenUpdateChecks>
+		<ApplicationIcon>Assets\app.ico</ApplicationIcon>
+		<ApplicationManifest>app.manifest</ApplicationManifest>
+		<AppxSymbolPackageEnabled>False</AppxSymbolPackageEnabled>
+	</PropertyGroup>
+</Project>

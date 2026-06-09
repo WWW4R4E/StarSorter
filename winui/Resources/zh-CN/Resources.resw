@@ -1,0 +1,459 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+	<resheader name="resmimetype">
+		<value>text/microsoft-resx</value>
+	</resheader>
+	<resheader name="version">
+		<value>2.0</value>
+	</resheader>
+	<resheader name="reader">
+		<value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+	</resheader>
+	<resheader name="writer">
+		<value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+	</resheader>
+
+	<data name="$Locale" xml:space="preserve">
+		<value>zh-CN</value>
+	</data>
+
+	<data name="AppTitle" xml:space="preserve">
+		<value>GitHub Stars 管理器</value>
+	</data>
+
+	<data name="Stars" xml:space="preserve">
+		<value>收藏</value>
+	</data>
+	<data name="Profile" xml:space="preserve">
+		<value>个人资料</value>
+	</data>
+	<data name="Explore" xml:space="preserve">
+		<value>探索</value>
+	</data>
+	<data name="Notifications" xml:space="preserve">
+		<value>通知</value>
+	</data>
+	<data name="Settings" xml:space="preserve">
+		<value>设置</value>
+	</data>
+
+	<data name="Appearance" xml:space="preserve">
+		<value>外观</value>
+	</data>
+	<data name="AppearanceDescription" xml:space="preserve">
+		<value>自定义应用的外观和感觉</value>
+	</data>
+	<data name="WindowBackground" xml:space="preserve">
+		<value>窗口背景</value>
+	</data>
+	<data name="WindowBackgroundDescription" xml:space="preserve">
+		<value>选择窗口背景材质</value>
+	</data>
+	<data name="AppTheme" xml:space="preserve">
+		<value>应用主题</value>
+	</data>
+	<data name="AppThemeDescription" xml:space="preserve">
+		<value>选择您喜欢的应用主题</value>
+	</data>
+	<data name="MarkdownBackground" xml:space="preserve">
+		<value>Markdown 背景</value>
+	</data>
+	<data name="MarkdownBackgroundDescription" xml:space="preserve">
+		<value>Markdown 内容的背景颜色（README、发布版本）</value>
+	</data>
+	<data name="NavigationPaneMode" xml:space="preserve">
+		<value>导航窗格模式</value>
+	</data>
+	<data name="NavigationPaneModeDescription" xml:space="preserve">
+		<value>选择导航栏的显示模式</value>
+	</data>
+	<data name="Language" xml:space="preserve">
+		<value>语言</value>
+	</data>
+	<data name="LanguageDescription" xml:space="preserve">
+		<value>选择应用语言</value>
+	</data>
+
+	<data name="GitHub" xml:space="preserve">
+		<value>GitHub</value>
+	</data>
+	<data name="GitHubDescription" xml:space="preserve">
+		<value>配置您的 GitHub API 连接</value>
+	</data>
+	<data name="PersonalAccessToken" xml:space="preserve">
+		<value>个人访问令牌</value>
+	</data>
+	<data name="PersonalAccessTokenDescription" xml:space="preserve">
+		<value>输入您的 GitHub 个人访问令牌（需要 repo 和 user 权限）。通知功能仅支持 classic（个人访问）令牌。</value>
+	</data>
+	<data name="Proxy" xml:space="preserve">
+		<value>代理</value>
+	</data>
+	<data name="ProxyDescription" xml:space="preserve">
+		<value>为 GitHub API 请求配置代理</value>
+	</data>
+	<data name="ProxyUrl" xml:space="preserve">
+		<value>代理 URL</value>
+	</data>
+	<data name="ProxyUrlDescription" xml:space="preserve">
+		<value>输入您的代理服务器地址</value>
+	</data>
+
+	<data name="MicaBase" xml:space="preserve">
+		<value>云母（基础）</value>
+	</data>
+	<data name="MicaAlt" xml:space="preserve">
+		<value>云母（替代）</value>
+	</data>
+	<data name="AcrylicBase" xml:space="preserve">
+		<value>亚克力（基础）</value>
+	</data>
+	<data name="AcrylicThin" xml:space="preserve">
+		<value>亚克力（轻薄）</value>
+	</data>
+	<data name="None" xml:space="preserve">
+		<value>无</value>
+	</data>
+	<data name="Light" xml:space="preserve">
+		<value>浅色</value>
+	</data>
+	<data name="Dark" xml:space="preserve">
+		<value>深色</value>
+	</data>
+	<data name="UseSystemSetting" xml:space="preserve">
+		<value>使用系统设置</value>
+	</data>
+	<data name="DarkBlue" xml:space="preserve">
+		<value>深蓝</value>
+	</data>
+	<data name="Dark" xml:space="preserve">
+		<value>深色</value>
+	</data>
+	<data name="Black" xml:space="preserve">
+		<value>黑色</value>
+	</data>
+	<data name="Slate" xml:space="preserve">
+		<value>石板灰</value>
+	</data>
+	<data name="Auto" xml:space="preserve">
+		<value>自动</value>
+	</data>
+	<data name="Left" xml:space="preserve">
+		<value>左对齐</value>
+	</data>
+	<data name="LeftCompact" xml:space="preserve">
+		<value>左对齐(紧凑)</value>
+	</data>
+	<data name="SystemDefault" xml:space="preserve">
+		<value>系统默认</value>
+	</data>
+	<data name="Chinese" xml:space="preserve">
+		<value>中文</value>
+	</data>
+	<data name="English" xml:space="preserve">
+		<value>英文</value>
+	</data>
+
+	<data name="Save" xml:space="preserve">
+		<value>保存</value>
+	</data>
+	<data name="Disabled" xml:space="preserve">
+		<value>不使用</value>
+	</data>
+	<data name="System" xml:space="preserve">
+		<value>系统环境变量</value>
+	</data>
+	<data name="Custom" xml:space="preserve">
+		<value>自定义</value>
+	</data>
+
+	<data name="TokenSaved" xml:space="preserve">
+		<value>令牌已保存</value>
+	</data>
+	<data name="TokenNotConfigured" xml:space="preserve">
+		<value>令牌未配置</value>
+	</data>
+	<data name="ProxyDisabled" xml:space="preserve">
+		<value>代理已禁用</value>
+	</data>
+	<data name="UsingSystemProxy" xml:space="preserve">
+		<value>使用系统代理</value>
+	</data>
+	<data name="UsingCustomProxy" xml:space="preserve">
+		<value>使用自定义代理</value>
+	</data>
+	<data name="AutoMode" xml:space="preserve">
+		<value>自动</value>
+	</data>
+	<data name="ManualMode" xml:space="preserve">
+		<value>手动</value>
+	</data>
+
+	<data name="TokenSavedSuccessfully" xml:space="preserve">
+		<value>令牌保存成功</value>
+	</data>
+	<data name="TokenCannotBeEmpty" xml:space="preserve">
+		<value>令牌不能为空</value>
+	</data>
+	<data name="ProxySettingsSaved" xml:space="preserve">
+		<value>代理设置已保存</value>
+	</data>
+	<data name="LanguageChangedRestart" xml:space="preserve">
+		<value>语言已更改，请重启应用以生效。</value>
+	</data>
+	<data name="RestartRequired" xml:space="preserve">
+		<value>需要重启</value>
+	</data>
+	<data name="RestartNow" xml:space="preserve">
+		<value>立即重启</value>
+	</data>
+	<data name="RestartLater" xml:space="preserve">
+		<value>稍后重启</value>
+	</data>
+	<data name="AllStars" xml:space="preserve">
+		<value>全部星星</value>
+	</data>
+	<data name="Uncategorized" xml:space="preserve">
+		<value>未分类</value>
+	</data>
+	<data name="AllNotifications" xml:space="preserve">
+		<value>全部通知</value>
+	</data>
+	<data name="Issue" xml:space="preserve">
+		<value>问题</value>
+	</data>
+	<data name="PullRequest" xml:space="preserve">
+		<value>拉取请求</value>
+	</data>
+	<data name="Release" xml:space="preserve">
+		<value>发布</value>
+	</data>
+	<data name="Commit" xml:space="preserve">
+		<value>提交</value>
+	</data>
+	<data name="NotificationCategory" xml:space="preserve">
+		<value>通知分类</value>
+	</data>
+	<data name="AddCategory" xml:space="preserve">
+		<value>新建</value>
+	</data>
+	<data name="MultiSelect" xml:space="preserve">
+		<value>多选</value>
+	</data>
+	<data name="Cancel" xml:space="preserve">
+		<value>取消</value>
+	</data>
+	<data name="CancelMultiSelect" xml:space="preserve">
+		<value>取消多选</value>
+	</data>
+	<data name="SmartClassify" xml:space="preserve">
+		<value>智能分类</value>
+	</data>
+	<data name="ExportData" xml:space="preserve">
+		<value>导出数据</value>
+	</data>
+	<data name="ImportResult" xml:space="preserve">
+		<value>导入结果</value>
+	</data>
+	<data name="ConfirmExecute" xml:space="preserve">
+		<value>确认执行</value>
+	</data>
+	<data name="NoDataImported" xml:space="preserve">
+		<value>尚未导入数据</value>
+	</data>
+	<data name="NoUncategorizedRepos" xml:space="preserve">
+		<value>没有未分类的仓库</value>
+	</data>
+	<data name="ExportedCount" xml:space="preserve">
+		<value>已导出 {0} 个仓库到 {1}</value>
+	</data>
+	<data name="ImportedCount" xml:space="preserve">
+		<value>已导入 {0} 个仓库，{1} 个分组</value>
+	</data>
+	<data name="Unassign" xml:space="preserve">
+		<value>未分配</value>
+	</data>
+	<data name="SummaryText" xml:space="preserve">
+		<value>共 {0} 个分类，{1} 个仓库</value>
+	</data>
+	<data name="SummaryWithUnassigned" xml:space="preserve">
+		<value>共 {0} 个分类，{1} 个仓库，{2} 个未分配</value>
+	</data>
+	<data name="RemoveFromCategory" xml:space="preserve">
+		<value>从该分组移除</value>
+	</data>
+	<data name="Unstar" xml:space="preserve">
+		<value>取消星标</value>
+	</data>
+	<data name="AddToCategory" xml:space="preserve">
+		<value>添加到分组</value>
+	</data>
+	<data name="DeleteCategory" xml:space="preserve">
+		<value>删除分组</value>
+	</data>
+	<data name="ResetCategory" xml:space="preserve">
+		<value>重置分组</value>
+	</data>
+	<data name="UnstarFailed" xml:space="preserve">
+		<value>取消星标失败</value>
+	</data>
+	<data name="UnstarFailedContent" xml:space="preserve">
+		<value>部分仓库取消星标失败，请检查网络连接或稍后重试。</value>
+	</data>
+	<data name="ImportFailed" xml:space="preserve">
+		<value>导入失败</value>
+	</data>
+	<data name="OK" xml:space="preserve">
+		<value>确定</value>
+	</data>
+	<data name="CategoryNamePlaceholder" xml:space="preserve">
+		<value>输入分组名称</value>
+	</data>
+	<data name="AddCategoryDialogTitle" xml:space="preserve">
+		<value>添加分组</value>
+	</data>
+	<data name="Notification_TimeAgo_JustNow" xml:space="preserve">
+		<value>刚刚</value>
+	</data>
+	<data name="Notification_TimeAgo_MinutesAgo" xml:space="preserve">
+		<value>{0} 分钟前</value>
+	</data>
+	<data name="Notification_TimeAgo_HoursAgo" xml:space="preserve">
+		<value>{0} 小时前</value>
+	</data>
+	<data name="Notification_TimeAgo_DaysAgo" xml:space="preserve">
+		<value>{0} 天前</value>
+	</data>
+	<data name="Notification_Reason_Mention" xml:space="preserve">
+		<value>提到了我</value>
+	</data>
+	<data name="Notification_Reason_Subscribed" xml:space="preserve">
+		<value>已订阅</value>
+	</data>
+	<data name="Notification_Reason_ReviewRequested" xml:space="preserve">
+		<value>请求审核</value>
+	</data>
+	<data name="Notification_Reason_Assign" xml:space="preserve">
+		<value>已分配</value>
+	</data>
+	<data name="Notification_Reason_StateChange" xml:space="preserve">
+		<value>状态变更</value>
+	</data>
+	<data name="Notification_Reason_SecurityAlert" xml:space="preserve">
+		<value>安全警报</value>
+	</data>
+	<data name="Notification_Reason_CIActivity" xml:space="preserve">
+		<value>CI 活动</value>
+	</data>
+	<data name="Notification_Reason_Manual" xml:space="preserve">
+		<value>手动</value>
+	</data>
+	<data name="ProfileRepositories" xml:space="preserve">
+		<value>仓库</value>
+	</data>
+	<data name="ProfileFollowers" xml:space="preserve">
+		<value>关注者</value>
+	</data>
+	<data name="ProfileFollowing" xml:space="preserve">
+		<value>正在关注</value>
+	</data>
+	<data name="ProfileGists" xml:space="preserve">
+		<value>代码片段</value>
+	</data>
+	<data name="ProfileApiRateLimit" xml:space="preserve">
+		<value>API 速率限制</value>
+	</data>
+	<data name="ProfileCoreApi" xml:space="preserve">
+		<value>核心 API</value>
+	</data>
+	<data name="ProfileSearchApi" xml:space="preserve">
+		<value>搜索 API</value>
+	</data>
+	<data name="LoadingStars" xml:space="preserve">
+		<value>正在加载收藏仓库...</value>
+	</data>
+	<data name="NetworkError" xml:space="preserve">
+		<value>网络错误</value>
+	</data>
+	<data name="RequestFailed" xml:space="preserve">
+		<value>请求失败</value>
+	</data>
+	<data name="Retry" xml:space="preserve">
+		<value>重试</value>
+	</data>
+	<data name="PermissionDenied" xml:space="preserve">
+		<value>权限不足</value>
+	</data>
+	<data name="AuthFailed" xml:space="preserve">
+		<value>认证失败</value>
+	</data>
+	<data name="ErrorLoadStars" xml:space="preserve">
+		<value>加载收藏仓库失败: {0}</value>
+	</data>
+	<data name="GhNetworkError" xml:space="preserve">
+		<value>发生网络错误</value>
+	</data>
+	<data name="GhUnauthorized" xml:space="preserve">
+		<value>未授权 - 请检查您的令牌</value>
+	</data>
+	<data name="GhNotFound" xml:space="preserve">
+		<value>资源未找到</value>
+	</data>
+	<data name="GhRateLimited" xml:space="preserve">
+		<value>GitHub API 速率限制</value>
+	</data>
+	<data name="GhServerError" xml:space="preserve">
+		<value>GitHub 服务器错误</value>
+	</data>
+	<data name="GhParseError" xml:space="preserve">
+		<value>解析 API 响应失败</value>
+	</data>
+	<data name="GhForbidden" xml:space="preserve">
+		<value>访问被拒绝 - 令牌缺少所需权限</value>
+	</data>
+	<data name="GhHttpError" xml:space="preserve">
+		<value>HTTP 请求失败，状态码异常</value>
+	</data>
+	<data name="GhUnknownError" xml:space="preserve">
+		<value>未知错误 (代码 {0})</value>
+	</data>
+	<data name="ServerResponse" xml:space="preserve">
+		<value>服务器响应: {0}</value>
+	</data>
+	<data name="Refresh" xml:space="preserve">
+		<value>刷新</value>
+	</data>
+	<data name="MarkAllRead" xml:space="preserve">
+		<value>全部标为已读</value>
+	</data>
+	<data name="ErrorLoadProfile" xml:space="preserve">
+		<value>加载个人资料失败: {0}</value>
+	</data>
+	<data name="InvalidRepoName" xml:space="preserve">
+		<value>仓库名称格式无效</value>
+	</data>
+	<data name="ErrorLoadRepoDetails" xml:space="preserve">
+		<value>加载仓库详情失败: {0}</value>
+	</data>
+	<data name="LoadingRepoDetails" xml:space="preserve">
+		<value>正在加载仓库详情...</value>
+	</data>
+	<data name="OpenInBrowser" xml:space="preserve">
+		<value>在浏览器中打开</value>
+	</data>
+	<data name="About" xml:space="preserve">
+		<value>关于</value>
+	</data>
+	<data name="AboutDescription" xml:space="preserve">
+		<value>使用指南与项目信息</value>
+	</data>
+	<data name="ClassicTokenNote" xml:space="preserve">
+		<value>通知功能仅支持 classic（个人访问）令牌。Fine-grained 令牌不支持通知 API。</value>
+	</data>
+	<data name="ProjectRepo" xml:space="preserve">
+		<value>在 GitHub 上查看</value>
+	</data>
+	<data name="CheckUpdates" xml:space="preserve">
+		<value>检查更新</value>
+	</data>
+</root>

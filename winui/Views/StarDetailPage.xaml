@@ -1,0 +1,397 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Page
+    x:Class="StarSorter.Views.StarDetailPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:controls="using:StarSorter.Controls"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:helpers="using:StarSorter.Helpers"
+    xmlns:local="using:StarSorter.Views"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:md="using:MarkWin2D.Controls"
+    xmlns:viewModels="using:StarSorter.ViewModels"
+    mc:Ignorable="d">
+
+    <Page.Resources>
+        <DataTemplate x:Key="ReleaseTemplate" x:DataType="viewModels:Release">
+            <Border
+                Margin="8"
+                Padding="16"
+                Background="{ThemeResource CardBackgroundFillColorDefaultBrush}"
+                BorderBrush="{ThemeResource CardStrokeColorDefaultBrush}"
+                BorderThickness="1">
+                <StackPanel Spacing="4">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="Auto" />
+                        </Grid.ColumnDefinitions>
+                        <TextBlock
+                            Grid.Column="0"
+                            FontWeight="SemiBold"
+                            Text="{x:Bind Name}" />
+                        <TextBlock
+                            Grid.Column="1"
+                            FontFamily="Consolas"
+                            FontSize="13"
+                            Opacity="0.6"
+                            Text="{x:Bind TagName}" />
+                    </Grid>
+                    <TextBlock
+                        FontSize="12"
+                        Opacity="0.4"
+                        Text="{x:Bind PublishedAt}" />
+
+                    <TextBlock
+                        MaxLines="3"
+                        Text="{x:Bind Body}"
+                        TextTrimming="CharacterEllipsis"
+                        TextWrapping="Wrap"
+                        Visibility="{x:Bind local:StarDetailPage.ToInvertedVisibility(IsExpanded), Mode=OneWay}" />
+
+                    <Border
+                        MinHeight="60"
+                        MaxHeight="600"
+                        Visibility="{x:Bind local:StarDetailPage.ToVisibility(IsExpanded), Mode=OneWay}" />
+
+                    <Button
+                        MinWidth="0"
+                        Padding="8,2"
+                        HorizontalAlignment="Left"
+                        Click="OnToggleReleaseBody"
+                        Content="{x:Bind local:StarDetailPage.GetExpandButtonText(IsExpanded), Mode=OneWay}"
+                        FontSize="12" />
+                </StackPanel>
+            </Border>
+        </DataTemplate>
+
+        <ItemsPanelTemplate x:Key="TopicsPanelTemplate">
+            <WrapGrid MaximumRowsOrColumns="5" Orientation="Horizontal" />
+        </ItemsPanelTemplate>
+    </Page.Resources>
+
+    <Grid>
+        <!--  Loading State  -->
+        <Grid Visibility="{x:Bind local:StarDetailPage.ToVisibility(ViewModel.IsLoading), Mode=OneWay}">
+            <StackPanel
+                HorizontalAlignment="Center"
+                VerticalAlignment="Center"
+                Spacing="12">
+                <ProgressRing
+                    Width="48"
+                    Height="48"
+                    IsActive="{x:Bind ViewModel.IsLoading, Mode=OneWay}" />
+                <TextBlock
+                    HorizontalAlignment="Center"
+                    Opacity="0.6"
+                    Text="Loading repository details..." />
+            </StackPanel>
+        </Grid>
+
+        <Grid Visibility="{x:Bind local:StarDetailPage.ToVisibility(ViewModel.HasError), Mode=OneWay}">
+            <StackPanel
+                HorizontalAlignment="Center"
+                VerticalAlignment="Center"
+                Spacing="12">
+                <FontIcon
+                    HorizontalAlignment="Center"
+                    FontSize="48"
+                    Glyph="&#xE783;"
+                    Opacity="0.6" />
+                <TextBlock
+                    MaxWidth="400"
+                    HorizontalAlignment="Center"
+                    Opacity="0.6"
+                    Text="{x:Bind ViewModel.ErrorMessage, Mode=OneWay}"
+                    TextAlignment="Center"
+                    TextWrapping="Wrap" />
+            </StackPanel>
+        </Grid>
+
+        <ScrollViewer
+            x:Name="ContentScrollViewer"
+            VerticalScrollBarVisibility="Auto"
+            Visibility="{x:Bind local:StarDetailPage.ToVisibility(ViewModel.IsContentVisible), Mode=OneWay}">
+            <Grid Margin="24,24,24,24">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="280" />
+                </Grid.ColumnDefinitions>
+
+                <!--  Main content  -->
+                <StackPanel
+                    Grid.Column="0"
+                    Margin="0,0,24,0"
+                    Spacing="16">
+                    <!--  Repo header  -->
+                    <Border
+                       Padding="24"
+                       Style="{ThemeResource CardBorderStyle}">
+                        <StackPanel Spacing="12">
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="Auto" />
+                                    <ColumnDefinition Width="*" />
+                                    <ColumnDefinition Width="Auto" />
+                                </Grid.ColumnDefinitions>
+                                <Border
+                                    Grid.Column="0"
+                                    Width="48"
+                                    Height="48"
+                                    Margin="0,0,12,0"
+                                    CornerRadius="24">
+                                    <controls:CachedImageControl
+                                        Width="48"
+                                        Height="48"
+                                        Source="{x:Bind ViewModel.Repository.Owner.AvatarUrl, Mode=OneWay}" />
+                                </Border>
+                                <StackPanel Grid.Column="1" VerticalAlignment="Center">
+                                    <TextBlock Style="{ThemeResource SubtitleTextBlockStyle}" Text="{x:Bind ViewModel.Repository.FullName, Mode=OneWay}" />
+                                    <StackPanel Orientation="Horizontal" Spacing="4">
+                                        <TextBlock Opacity="0.6" Text="{x:Bind ViewModel.Repository.Owner.Login, Mode=OneWay}" />
+                                        <TextBlock Opacity="0.3" Text="·" />
+                                        <TextBlock Opacity="0.6" Text="{x:Bind ViewModel.Repository.Language, Mode=OneWay}" />
+                                    </StackPanel>
+                                </StackPanel>
+                                <HyperlinkButton
+                                    Grid.Column="2"
+                                    VerticalAlignment="Center"
+                                    Content="Open in Browser"
+                                    NavigateUri="{x:Bind helpers:Converters.ToUri(ViewModel.Repository.HtmlUrl), Mode=OneWay}" />
+                            </Grid>
+
+                            <TextBlock
+                                Opacity="0.8"
+                                Text="{x:Bind ViewModel.Repository.Description, Mode=OneWay}"
+                                TextWrapping="Wrap" />
+
+                            <Grid ColumnSpacing="24">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="Auto" />
+                                    <ColumnDefinition Width="Auto" />
+                                    <ColumnDefinition Width="Auto" />
+                                    <ColumnDefinition Width="Auto" />
+                                </Grid.ColumnDefinitions>
+                                <StackPanel
+                                    Grid.Column="0"
+                                    Orientation="Horizontal"
+                                    Spacing="4">
+                                    <FontIcon FontSize="14" Glyph="&#xE734;" />
+                                    <TextBlock Text="{x:Bind ViewModel.Repository.StargazersCount, Mode=OneWay}" />
+                                </StackPanel>
+                                <StackPanel
+                                    Grid.Column="1"
+                                    Orientation="Horizontal"
+                                    Spacing="4">
+                                    <FontIcon FontSize="14" Glyph="&#xE7B3;" />
+                                    <TextBlock Text="{x:Bind ViewModel.Repository.ForksCount, Mode=OneWay}" />
+                                </StackPanel>
+                                <StackPanel
+                                    Grid.Column="2"
+                                    Orientation="Horizontal"
+                                    Spacing="4"
+                                    Visibility="{x:Bind local:StarDetailPage.ToVisibilityFromObject(ViewModel.Repository.License), Mode=OneWay}">
+                                    <Ellipse
+                                        Width="10"
+                                        Height="10"
+                                        VerticalAlignment="Center"
+                                        Fill="#3178C6" />
+                                    <TextBlock Text="{x:Bind ViewModel.Repository.License.Name, Mode=OneWay}" />
+                                </StackPanel>
+                                <StackPanel
+                                    Grid.Column="3"
+                                    Orientation="Horizontal"
+                                    Spacing="4">
+                                    <FontIcon FontSize="14" Glyph="&#xE7EF;" />
+                                    <TextBlock Text="{x:Bind ViewModel.Repository.UpdatedAt, Mode=OneWay}" />
+                                </StackPanel>
+                            </Grid>
+
+                            <local:TopicsRepeater Topics="{x:Bind ViewModel.Repository.Topics}" />
+                        </StackPanel>
+                    </Border>
+
+                    <!--  README  -->
+                    <Border Style="{ThemeResource CardBorderStyle}">
+                        <StackPanel>
+                            <TextBlock
+                                Margin="16,8"
+                                Opacity="0.4"
+                                Style="{ThemeResource SubtitleTextBlockStyle}"
+                                Text="README" />
+                            <Border Background="{ThemeResource CardBackgroundFillColorSecondaryBrush}" Visibility="{x:Bind ViewModel.HasReadme, Mode=OneWay}">
+                                <md:MarkWin2DControl x:Name="ReadmeMarkdown" />
+                            </Border>
+                        </StackPanel>
+                    </Border>
+                </StackPanel>
+
+                <StackPanel Grid.Column="1" Spacing="16">
+                    <Border
+                        Padding="16" Style="{ThemeResource CardBorderStyle}">
+                        <StackPanel Spacing="8">
+                            <TextBlock FontWeight="SemiBold" Text="About" />
+                            <TextBlock
+                                FontSize="13"
+                                Opacity="0.8"
+                                Text="{x:Bind ViewModel.Repository.Description, Mode=OneWay}"
+                                TextWrapping="Wrap" />
+
+                            <StackPanel Margin="0,8,0,0" Spacing="6">
+                                <StackPanel
+                                    Orientation="Horizontal"
+                                    Spacing="6"
+                                    Visibility="{x:Bind local:StarDetailPage.ToVisibilityFromObject(ViewModel.Repository.Homepage), Mode=OneWay}">
+                                    <FontIcon
+                                        FontSize="14"
+                                        Glyph="&#xE71D;"
+                                        Opacity="0.5" />
+                                    <TextBlock FontSize="13">
+                                        <Hyperlink NavigateUri="{x:Bind helpers:Converters.ToUri(ViewModel.Repository.Homepage), Mode=OneWay}">
+                                            <Run Text="{x:Bind ViewModel.Repository.Homepage, Mode=OneWay}" />
+                                        </Hyperlink>
+                                    </TextBlock>
+                                </StackPanel>
+                                <StackPanel
+                                    Orientation="Horizontal"
+                                    Spacing="6"
+                                    Visibility="{x:Bind local:StarDetailPage.ToVisibilityFromObject(ViewModel.Repository.License), Mode=OneWay}">
+                                    <FontIcon
+                                        FontSize="14"
+                                        Glyph="&#xE7EF;"
+                                        Opacity="0.5" />
+                                    <TextBlock FontSize="13" Text="{x:Bind ViewModel.Repository.License.Name, Mode=OneWay}" />
+                                </StackPanel>
+                                <StackPanel Orientation="Horizontal" Spacing="6">
+                                    <FontIcon
+                                        FontSize="14"
+                                        Glyph="&#xE91B;"
+                                        Opacity="0.5" />
+                                    <TextBlock FontSize="13">
+                                        <Run Text="Updated" />
+                                        <Run Text="{x:Bind ViewModel.Repository.UpdatedAt, Mode=OneWay}" />
+                                    </TextBlock>
+                                </StackPanel>
+                            </StackPanel>
+                        </StackPanel>
+                    </Border>
+
+                    <!--  Latest Release  -->
+                    <Border
+                        Padding="16" Style="{ThemeResource CardBorderStyle}"
+                        Visibility="{x:Bind ViewModel.HasReleases, Mode=OneWay}">
+                        <StackPanel Spacing="4">
+                            <TextBlock FontWeight="SemiBold" Text="Latest Release" />
+                            <TextBlock
+                                FontFamily="Consolas"
+                                FontSize="13"
+                                Text="{x:Bind ViewModel.LatestRelease.TagName, Mode=OneWay}" />
+                            <TextBlock
+                                FontSize="12"
+                                Opacity="0.5"
+                                Text="{x:Bind ViewModel.LatestRelease.PublishedAt, Mode=OneWay}" />
+                        </StackPanel>
+                    </Border>
+
+                    <Border
+                        Padding="16"
+                        Style="{ThemeResource CardBorderStyle}"
+                        Visibility="{x:Bind ViewModel.HasNoReleases, Mode=OneWay}">
+                        <StackPanel Spacing="8">
+                            <TextBlock FontWeight="SemiBold" Text="Latest Release" />
+                            <TextBlock
+                                FontSize="13"
+                                Opacity="0.4"
+                                Text="No releases yet" />
+                        </StackPanel>
+                    </Border>
+
+                    <!--  Releases (expandable)  -->
+                    <!--<Border
+                        Padding="0"
+                        Background="{ThemeResource CardBackgroundFillColorDefaultBrush}"
+                        BorderBrush="{ThemeResource CardStrokeColorDefaultBrush}"
+                        BorderThickness="1">
+                        <StackPanel>
+                            <Grid Padding="16,12,16,12" Background="Transparent">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*" />
+                                    <ColumnDefinition Width="Auto" />
+                                </Grid.ColumnDefinitions>
+                                <TextBlock
+                                    Grid.Column="0"
+                                    VerticalAlignment="Center"
+                                    FontWeight="SemiBold"
+                                    Text="Releases" />
+                                <FontIcon
+                                    x:Name="ReleasesChevron"
+                                    Grid.Column="1"
+                                    FontSize="12"
+                                    Glyph="&#xE70D;"
+                                    Opacity="0.5" />
+                                <Button
+                                    Grid.ColumnSpan="2"
+                                    Padding="0"
+                                    HorizontalAlignment="Stretch"
+                                    VerticalAlignment="Stretch"
+                                    Click="OnToggleReleases"
+                                    Opacity="0" />
+                            </Grid>
+                            <ItemsControl
+                                x:Name="ReleasesItems"
+                                ItemTemplate="{StaticResource ReleaseTemplate}"
+                                ItemsSource="{x:Bind ViewModel.Releases, Mode=OneWay}"
+                                Visibility="Collapsed" />
+                        </StackPanel>
+                    </Border>-->
+
+                    <!--  Contributors  -->
+                    <Border
+                        Padding="16"
+                        Background="{ThemeResource CardBackgroundFillColorDefaultBrush}"
+                        BorderBrush="{ThemeResource CardStrokeColorDefaultBrush}"
+                        BorderThickness="1">
+                        <StackPanel Spacing="8">
+                            <TextBlock FontWeight="SemiBold" Text="Contributors" />
+                            <ItemsControl ItemsSource="{x:Bind ViewModel.Contributors, Mode=OneWay}">
+                                <ItemsControl.ItemTemplate>
+                                    <DataTemplate x:DataType="viewModels:Contributor">
+                                        <Grid Margin="0,4,0,0">
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="Auto" />
+                                                <ColumnDefinition Width="*" />
+                                                <ColumnDefinition Width="Auto" />
+                                            </Grid.ColumnDefinitions>
+                                            <Border
+                                                Width="24"
+                                                Height="24"
+                                                Margin="0,0,8,0"
+                                                Background="{ThemeResource SystemAccentColorLight2}"
+                                                CornerRadius="12">
+                                                <controls:CachedImageControl
+                                                    Width="24"
+                                                    Height="24"
+                                                    Source="{x:Bind AvatarUrl}" />
+                                            </Border>
+                                            <TextBlock
+                                                Grid.Column="1"
+                                                VerticalAlignment="Center"
+                                                FontSize="13"
+                                                Text="{x:Bind Login}" />
+                                            <TextBlock
+                                                Grid.Column="2"
+                                                VerticalAlignment="Center"
+                                                FontSize="12"
+                                                Opacity="0.5"
+                                                Text="{x:Bind Contributions}" />
+                                        </Grid>
+                                    </DataTemplate>
+                                </ItemsControl.ItemTemplate>
+                            </ItemsControl>
+                        </StackPanel>
+                    </Border>
+                </StackPanel>
+            </Grid>
+        </ScrollViewer>
+    </Grid>
+</Page>

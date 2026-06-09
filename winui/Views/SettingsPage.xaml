@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Page
+    x:Class="StarSorter.Views.SettingsPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:StarSorter.Views"
+    xmlns:controls="using:CommunityToolkit.WinUI.Controls"
+    xmlns:ui="using:CommunityToolkit.WinUI"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    Loaded="OnSettingsPageLoaded"
+    mc:Ignorable="d">
+
+    <Grid Margin="0,8,0,0">
+        <StackPanel Margin="24,24,24,0" Spacing="4">
+            <controls:SettingsExpander 
+                Header="{x:Bind ViewModel.GetLocalizedString('Appearance'), Mode=OneWay}"
+                HeaderIcon="{ui:FontIcon Glyph=&#xE771;}"
+                Description="{x:Bind ViewModel.GetLocalizedString('AppearanceDescription'), Mode=OneWay}">
+                <controls:SettingsExpander.Items>
+
+                    <controls:SettingsCard 
+                        Header="{x:Bind ViewModel.GetLocalizedString('WindowBackground'), Mode=OneWay}"
+                        Description="{x:Bind ViewModel.GetLocalizedString('WindowBackgroundDescription'), Mode=OneWay}"
+                        HeaderIcon="{ui:FontIcon Glyph=&#xE745;}">
+                        <ComboBox
+                            x:Name="windowBackground"
+                            AutomationProperties.AutomationId="windowBackgroundComboBox"
+                            SelectionChanged="WindowBackground_SelectionChanged">
+                            <ComboBoxItem Content="{x:Bind ViewModel.GetLocalizedString('MicaBase'), Mode=OneWay}" Tag="MicaBase" />
+                            <ComboBoxItem Content="{x:Bind ViewModel.GetLocalizedString('MicaAlt'), Mode=OneWay}" Tag="MicaAlt" />
+                            <ComboBoxItem Content="{x:Bind ViewModel.GetLocalizedString('AcrylicBase'), Mode=OneWay}" Tag="AcrylicBase" />
+                            <ComboBoxItem Content="{x:Bind ViewModel.GetLocalizedString('AcrylicThin'), Mode=OneWay}" Tag="AcrylicThin" />
+                            <ComboBoxItem Content="{x:Bind ViewModel.GetLocalizedString('None'), Mode=OneWay}" Tag="None" />
+                        </ComboBox>
+                    </controls:SettingsCard>
+
+                    <controls:SettingsCard 
+                        Header="{x:Bind ViewModel.GetLocalizedString('AppTheme'), Mode=OneWay}"
+                        Description="{x:Bind ViewModel.GetLocalizedString('AppThemeDescription'), Mode=OneWay}"
+                        HeaderIcon="{ui:FontIcon Glyph=&#xE790;}">
+                        <ComboBox
+                            x:Name="themeMode"
+                            AutomationProperties.AutomationId="themeModeComboBox"
+                            SelectionChanged="ThemeMode_SelectionChanged">
+                            <ComboBoxItem Content="{x:Bind ViewModel.GetLocalizedString('Light'), Mode=OneWay}" Tag="Light" />
+                            <ComboBoxItem Content="{x:Bind ViewModel.GetLocalizedString('Dark'), Mode=OneWay}" Tag="Dark" />
+                            <ComboBoxItem Content="{x:Bind ViewModel.GetLocalizedString('UseSystemSetting'), Mode=OneWay}" Tag="Default" />
+                        </ComboBox>
+                    </controls:SettingsCard>
+
+                    <controls:SettingsCard 
+                        Header="{x:Bind ViewModel.GetLocalizedString('MarkdownBackground'), Mode=OneWay}"
+                        Description="{x:Bind ViewModel.GetLocalizedString('MarkdownBackgroundDescription'), Mode=OneWay}"
+                        HeaderIcon="{ui:FontIcon Glyph=&#xE790;}">
+                        <ComboBox
+                            x:Name="markdownBgColor"
+                            Width="200"
+                            SelectionChanged="MarkdownBgColor_SelectionChanged">
+                            <ComboBoxItem Content="{x:Bind ViewModel.GetLocalizedString('DarkBlue'), Mode=OneWay}" Tag="#232733" />
+                            <ComboBoxItem Content="{x:Bind ViewModel.GetLocalizedString('Dark'), Mode=OneWay}" Tag="#1E1E1E" />
+                            <ComboBoxItem Content="{x:Bind ViewModel.GetLocalizedString('Black'), Mode=OneWay}" Tag="#000000" />
+                            <ComboBoxItem Content="{x:Bind ViewModel.GetLocalizedString('Slate'), Mode=OneWay}" Tag="#2D2D2D" />
+                        </ComboBox>
+                    </controls:SettingsCard>
+
+                    <controls:SettingsCard 
+                        Header="{x:Bind ViewModel.GetLocalizedString('NavigationPaneMode'), Mode=OneWay}"
+                        Description="{x:Bind ViewModel.GetLocalizedString('NavigationPaneModeDescription'), Mode=OneWay}"
+                        HeaderIcon="{ui:FontIcon Glyph=&#xE700;}">
+                        <ComboBox
+                            x:Name="navPaneModeCombo"
+                            Width="200"
+                            SelectionChanged="NavPaneMode_SelectionChanged">
+                            <ComboBoxItem Content="{x:Bind ViewModel.GetLocalizedString('Auto'), Mode=OneWay}" Tag="Auto" />
+                            <ComboBoxItem Content="{x:Bind ViewModel.GetLocalizedString('Left'), Mode=OneWay}" Tag="Left" />
+                            <ComboBoxItem Content="{x:Bind ViewModel.GetLocalizedString('LeftCompact'), Mode=OneWay}" Tag="LeftCompact" />
+                        </ComboBox>
+                    </controls:SettingsCard>
+
+                    <controls:SettingsCard 
+                        Header="{x:Bind ViewModel.GetLocalizedString('Language'), Mode=OneWay}"
+                        Description="{x:Bind ViewModel.GetLocalizedString('LanguageDescription'), Mode=OneWay}"
+                        HeaderIcon="{ui:FontIcon Glyph=&#xE72E;}">
+                        <ComboBox
+                            x:Name="appLanguageCombo"
+                            Width="200"
+                            SelectionChanged="AppLanguage_SelectionChanged">
+                            <ComboBoxItem Content="{x:Bind ViewModel.GetLocalizedString('SystemDefault'), Mode=OneWay}" Tag="Default" />
+                            <ComboBoxItem Content="{x:Bind ViewModel.GetLocalizedString('Chinese'), Mode=OneWay}" Tag="zh-CN" />
+                            <ComboBoxItem Content="{x:Bind ViewModel.GetLocalizedString('English'), Mode=OneWay}" Tag="en-US" />
+                        </ComboBox>
+                    </controls:SettingsCard>
+                </controls:SettingsExpander.Items>
+            </controls:SettingsExpander>
+
+            <controls:SettingsExpander 
+                Header="{x:Bind ViewModel.GetLocalizedString('GitHub'), Mode=OneWay}"
+                HeaderIcon="{ui:FontIcon Glyph=&#xE71B;}"
+                Description="{x:Bind ViewModel.GetLocalizedString('GitHubDescription'), Mode=OneWay}">
+                <controls:SettingsExpander.Items>
+                    <controls:SettingsCard 
+                        Header="{x:Bind ViewModel.GetLocalizedString('PersonalAccessToken'), Mode=OneWay}"
+                        Description="{x:Bind ViewModel.GetLocalizedString('PersonalAccessTokenDescription'), Mode=OneWay}">
+                        <StackPanel Orientation="Horizontal" Spacing="8">
+                            <PasswordBox
+                                x:Name="tokenBox"
+                                Width="300"
+                                PlaceholderText="ghp_..."
+                                Password="{x:Bind ViewModel.GitHubToken, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+                            <Button Content="{x:Bind ViewModel.GetLocalizedString('Save'), Mode=OneWay}" Click="SaveToken_Click" />
+                        </StackPanel>
+                    </controls:SettingsCard>
+
+                    <controls:SettingsCard 
+                        Header="{x:Bind ViewModel.GetLocalizedString('Proxy'), Mode=OneWay}"
+                        Description="{x:Bind ViewModel.GetLocalizedString('ProxyDescription'), Mode=OneWay}"
+                        HeaderIcon="{ui:FontIcon Glyph=&#xE77F;}">
+                        <ComboBox
+                            x:Name="proxyModeCombo"
+                            Width="200"
+                            SelectionChanged="ProxyMode_SelectionChanged">
+                            <ComboBoxItem Content="{x:Bind ViewModel.GetLocalizedString('Disabled'), Mode=OneWay}" Tag="Disabled" />
+                            <ComboBoxItem Content="{x:Bind ViewModel.GetLocalizedString('System'), Mode=OneWay}" Tag="System" />
+                            <ComboBoxItem Content="{x:Bind ViewModel.GetLocalizedString('Custom'), Mode=OneWay}" Tag="Custom" />
+                        </ComboBox>
+                    </controls:SettingsCard>
+
+                    <controls:SettingsCard 
+                        Header="{x:Bind ViewModel.GetLocalizedString('ProxyUrl'), Mode=OneWay}"
+                        Description="{x:Bind ViewModel.GetLocalizedString('ProxyUrlDescription'), Mode=OneWay}"
+                        HeaderIcon="{ui:FontIcon Glyph=&#xE774;}"
+                        Visibility="{x:Bind ViewModel.IsCustomProxy, Mode=OneWay}">
+                        <StackPanel Orientation="Horizontal" Spacing="8">
+                            <TextBox
+                                x:Name="proxyUrlBox"
+                                Width="300"
+                                PlaceholderText="http://127.0.0.1:7890"
+                                Text="{x:Bind ViewModel.CustomProxyUrl, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+                            <Button Content="{x:Bind ViewModel.GetLocalizedString('Save'), Mode=OneWay}" Click="SaveProxy_Click" />
+                        </StackPanel>
+                    </controls:SettingsCard>
+                </controls:SettingsExpander.Items>
+            </controls:SettingsExpander>
+
+
+            <controls:SettingsCard
+                        Header="StarSorter"
+                        HeaderIcon="{ui:BitmapIcon Source=ms-appx:///Assets/Square44x44Logo.png}"
+                        Description="{x:Bind ViewModel.AppVersion, Mode=OneWay}">
+                <StackPanel Orientation="Horizontal" Spacing="12">
+                    <HyperlinkButton
+                                Content="{x:Bind ViewModel.GetLocalizedString('ProjectRepo'), Mode=OneWay}"
+                                NavigateUri="https://github.com/WWW4R4E/StarSorter" />
+                    <Button
+                                Content="{x:Bind ViewModel.GetLocalizedString('CheckUpdates'), Mode=OneWay}"
+                                Click="CheckUpdates_Click" />
+                </StackPanel>
+            </controls:SettingsCard>
+
+            <InfoBar IsOpen="{x:Bind ViewModel.InfoBarOpen, Mode=OneWay}"
+                     Severity="{x:Bind ViewModel.InfoBarSeverity, Mode=OneWay}"
+                     Message="{x:Bind ViewModel.InfoBarMessage, Mode=OneWay}" />
+        </StackPanel>
+    </Grid>
+</Page>

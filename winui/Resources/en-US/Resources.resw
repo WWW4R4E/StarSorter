@@ -1,0 +1,456 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+	<resheader name="resmimetype">
+		<value>text/microsoft-resx</value>
+	</resheader>
+	<resheader name="version">
+		<value>2.0</value>
+	</resheader>
+	<resheader name="reader">
+		<value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+	</resheader>
+	<resheader name="writer">
+		<value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+	</resheader>
+
+	<data name="$Locale" xml:space="preserve">
+		<value>en-US</value>
+	</data>
+
+	<data name="AppTitle" xml:space="preserve">
+		<value>StarSorter</value>
+	</data>
+
+	<data name="Stars" xml:space="preserve">
+		<value>Stars</value>
+	</data>
+	<data name="Profile" xml:space="preserve">
+		<value>Profile</value>
+	</data>
+	<data name="Explore" xml:space="preserve">
+		<value>Explore</value>
+	</data>
+	<data name="Notifications" xml:space="preserve">
+		<value>Notifications</value>
+	</data>
+	<data name="Settings" xml:space="preserve">
+		<value>Settings</value>
+	</data>
+
+	<data name="Appearance" xml:space="preserve">
+		<value>Appearance</value>
+	</data>
+	<data name="AppearanceDescription" xml:space="preserve">
+		<value>Customize the look and feel of the app</value>
+	</data>
+	<data name="WindowBackground" xml:space="preserve">
+		<value>Window Background</value>
+	</data>
+	<data name="WindowBackgroundDescription" xml:space="preserve">
+		<value>Choose the window background material</value>
+	</data>
+	<data name="AppTheme" xml:space="preserve">
+		<value>App Theme</value>
+	</data>
+	<data name="AppThemeDescription" xml:space="preserve">
+		<value>Choose your preferred app theme</value>
+	</data>
+	<data name="MarkdownBackground" xml:space="preserve">
+		<value>Markdown Background</value>
+	</data>
+	<data name="MarkdownBackgroundDescription" xml:space="preserve">
+		<value>Background color for markdown content (README, releases)</value>
+	</data>
+	<data name="NavigationPaneMode" xml:space="preserve">
+		<value>Navigation Pane Mode</value>
+	</data>
+	<data name="NavigationPaneModeDescription" xml:space="preserve">
+		<value>Choose the navigation pane display mode</value>
+	</data>
+	<data name="Language" xml:space="preserve">
+		<value>Language</value>
+	</data>
+	<data name="LanguageDescription" xml:space="preserve">
+		<value>Choose application language</value>
+	</data>
+
+	<data name="GitHub" xml:space="preserve">
+		<value>GitHub</value>
+	</data>
+	<data name="GitHubDescription" xml:space="preserve">
+		<value>Configure your GitHub API connection</value>
+	</data>
+	<data name="PersonalAccessToken" xml:space="preserve">
+		<value>Personal Access Token</value>
+	</data>
+	<data name="PersonalAccessTokenDescription" xml:space="preserve">
+		<value>Enter your GitHub personal access token with repo &amp; user scopes. Notifications only supports classic (personal access) tokens.</value>
+	</data>
+	<data name="Proxy" xml:space="preserve">
+		<value>Proxy</value>
+	</data>
+	<data name="ProxyDescription" xml:space="preserve">
+		<value>Configure proxy for GitHub API requests</value>
+	</data>
+	<data name="ProxyUrl" xml:space="preserve">
+		<value>Proxy URL</value>
+	</data>
+	<data name="ProxyUrlDescription" xml:space="preserve">
+		<value>Enter your proxy server address</value>
+	</data>
+
+	<data name="MicaBase" xml:space="preserve">
+		<value>Mica (Base)</value>
+	</data>
+	<data name="MicaAlt" xml:space="preserve">
+		<value>Mica (Alt)</value>
+	</data>
+	<data name="AcrylicBase" xml:space="preserve">
+		<value>Acrylic (Base)</value>
+	</data>
+	<data name="AcrylicThin" xml:space="preserve">
+		<value>Acrylic (Thin)</value>
+	</data>
+	<data name="None" xml:space="preserve">
+		<value>None</value>
+	</data>
+	<data name="Light" xml:space="preserve">
+		<value>Light</value>
+	</data>
+	<data name="Dark" xml:space="preserve">
+		<value>Dark</value>
+	</data>
+	<data name="UseSystemSetting" xml:space="preserve">
+		<value>Use system setting</value>
+	</data>
+	<data name="DarkBlue" xml:space="preserve">
+		<value>Dark Blue</value>
+	</data>
+	<data name="Black" xml:space="preserve">
+		<value>Black</value>
+	</data>
+	<data name="Slate" xml:space="preserve">
+		<value>Slate</value>
+	</data>
+	<data name="Auto" xml:space="preserve">
+		<value>Auto</value>
+	</data>
+	<data name="Left" xml:space="preserve">
+		<value>Left</value>
+	</data>
+	<data name="LeftCompact" xml:space="preserve">
+		<value>Left Compact</value>
+	</data>
+	<data name="SystemDefault" xml:space="preserve">
+		<value>System Default</value>
+	</data>
+	<data name="Chinese" xml:space="preserve">
+		<value>中文</value>
+	</data>
+	<data name="English" xml:space="preserve">
+		<value>English</value>
+	</data>
+
+	<data name="Save" xml:space="preserve">
+		<value>Save</value>
+	</data>
+	<data name="Disabled" xml:space="preserve">
+		<value>Disabled</value>
+	</data>
+	<data name="System" xml:space="preserve">
+		<value>System</value>
+	</data>
+	<data name="Custom" xml:space="preserve">
+		<value>Custom</value>
+	</data>
+
+	<data name="TokenSaved" xml:space="preserve">
+		<value>Token saved</value>
+	</data>
+	<data name="TokenNotConfigured" xml:space="preserve">
+		<value>Token not configured</value>
+	</data>
+	<data name="ProxyDisabled" xml:space="preserve">
+		<value>Proxy disabled</value>
+	</data>
+	<data name="UsingSystemProxy" xml:space="preserve">
+		<value>Using system proxy</value>
+	</data>
+	<data name="UsingCustomProxy" xml:space="preserve">
+		<value>Using custom proxy</value>
+	</data>
+	<data name="AutoMode" xml:space="preserve">
+		<value>Auto</value>
+	</data>
+	<data name="ManualMode" xml:space="preserve">
+		<value>Manual</value>
+	</data>
+
+	<data name="TokenSavedSuccessfully" xml:space="preserve">
+		<value>Token saved successfully</value>
+	</data>
+	<data name="TokenCannotBeEmpty" xml:space="preserve">
+		<value>Token cannot be empty</value>
+	</data>
+	<data name="ProxySettingsSaved" xml:space="preserve">
+		<value>Proxy settings saved</value>
+	</data>
+	<data name="LanguageChangedRestart" xml:space="preserve">
+		<value>Language changed. Please restart the app for changes to take effect.</value>
+	</data>
+	<data name="RestartRequired" xml:space="preserve">
+		<value>Restart Required</value>
+	</data>
+	<data name="RestartNow" xml:space="preserve">
+		<value>Restart Now</value>
+	</data>
+	<data name="RestartLater" xml:space="preserve">
+		<value>Restart Later</value>
+	</data>
+	<data name="AllStars" xml:space="preserve">
+		<value>All Stars</value>
+	</data>
+	<data name="Uncategorized" xml:space="preserve">
+		<value>Uncategorized</value>
+	</data>
+	<data name="AllNotifications" xml:space="preserve">
+		<value>All Notifications</value>
+	</data>
+	<data name="Issue" xml:space="preserve">
+		<value>Issue</value>
+	</data>
+	<data name="PullRequest" xml:space="preserve">
+		<value>Pull Request</value>
+	</data>
+	<data name="Release" xml:space="preserve">
+		<value>Release</value>
+	</data>
+	<data name="Commit" xml:space="preserve">
+		<value>Commit</value>
+	</data>
+	<data name="NotificationCategory" xml:space="preserve">
+		<value>Notification Category</value>
+	</data>
+	<data name="AddCategory" xml:space="preserve">
+		<value>Add Category</value>
+	</data>
+	<data name="MultiSelect" xml:space="preserve">
+		<value>Multi</value>
+	</data>
+	<data name="Cancel" xml:space="preserve">
+		<value>Cancel</value>
+	</data>
+	<data name="CancelMultiSelect" xml:space="preserve">
+		<value>Cancel Multi</value>
+	</data>
+	<data name="SmartClassify" xml:space="preserve">
+		<value>Smart Classify</value>
+	</data>
+	<data name="ExportData" xml:space="preserve">
+		<value>Export Data</value>
+	</data>
+	<data name="ImportResult" xml:space="preserve">
+		<value>Import Result</value>
+	</data>
+	<data name="ConfirmExecute" xml:space="preserve">
+		<value>Execute</value>
+	</data>
+	<data name="NoDataImported" xml:space="preserve">
+		<value>No data imported yet</value>
+	</data>
+	<data name="NoUncategorizedRepos" xml:space="preserve">
+		<value>No uncategorized repositories</value>
+	</data>
+	<data name="ExportedCount" xml:space="preserve">
+		<value>Exported {0} repos to {1}</value>
+	</data>
+	<data name="ImportedCount" xml:space="preserve">
+		<value>Imported {0} repos, {1} categories</value>
+	</data>
+	<data name="Unassign" xml:space="preserve">
+		<value>Unassigned</value>
+	</data>
+	<data name="SummaryText" xml:space="preserve">
+		<value>{0} categories, {1} repos</value>
+	</data>
+	<data name="SummaryWithUnassigned" xml:space="preserve">
+		<value>{0} categories, {1} repos, {2} unassigned</value>
+	</data>
+	<data name="RemoveFromCategory" xml:space="preserve">
+		<value>Remove from category</value>
+	</data>
+	<data name="Unstar" xml:space="preserve">
+		<value>Unstar</value>
+	</data>
+	<data name="AddToCategory" xml:space="preserve">
+		<value>Add to category</value>
+	</data>
+	<data name="DeleteCategory" xml:space="preserve">
+		<value>Delete category</value>
+	</data>
+	<data name="ResetCategory" xml:space="preserve">
+		<value>Reset category</value>
+	</data>
+	<data name="UnstarFailed" xml:space="preserve">
+		<value>Unstar Failed</value>
+	</data>
+	<data name="UnstarFailedContent" xml:space="preserve">
+		<value>Some repositories failed to unstar. Please check your network and try again.</value>
+	</data>
+	<data name="ImportFailed" xml:space="preserve">
+		<value>Import failed</value>
+	</data>
+	<data name="OK" xml:space="preserve">
+		<value>OK</value>
+	</data>
+	<data name="CategoryNamePlaceholder" xml:space="preserve">
+		<value>Enter category name</value>
+	</data>
+	<data name="AddCategoryDialogTitle" xml:space="preserve">
+		<value>Add Category</value>
+	</data>
+	<data name="Notification_TimeAgo_JustNow" xml:space="preserve">
+		<value>Just now</value>
+	</data>
+	<data name="Notification_TimeAgo_MinutesAgo" xml:space="preserve">
+		<value>{0}m ago</value>
+	</data>
+	<data name="Notification_TimeAgo_HoursAgo" xml:space="preserve">
+		<value>{0}h ago</value>
+	</data>
+	<data name="Notification_TimeAgo_DaysAgo" xml:space="preserve">
+		<value>{0}d ago</value>
+	</data>
+	<data name="Notification_Reason_Mention" xml:space="preserve">
+		<value>Mention</value>
+	</data>
+	<data name="Notification_Reason_Subscribed" xml:space="preserve">
+		<value>Subscribed</value>
+	</data>
+	<data name="Notification_Reason_ReviewRequested" xml:space="preserve">
+		<value>Review requested</value>
+	</data>
+	<data name="Notification_Reason_Assign" xml:space="preserve">
+		<value>Assigned</value>
+	</data>
+	<data name="Notification_Reason_StateChange" xml:space="preserve">
+		<value>State changed</value>
+	</data>
+	<data name="Notification_Reason_SecurityAlert" xml:space="preserve">
+		<value>Security alert</value>
+	</data>
+	<data name="Notification_Reason_CIActivity" xml:space="preserve">
+		<value>CI activity</value>
+	</data>
+	<data name="Notification_Reason_Manual" xml:space="preserve">
+		<value>Manual</value>
+	</data>
+	<data name="ProfileRepositories" xml:space="preserve">
+		<value>Repositories</value>
+	</data>
+	<data name="ProfileFollowers" xml:space="preserve">
+		<value>Followers</value>
+	</data>
+	<data name="ProfileFollowing" xml:space="preserve">
+		<value>Following</value>
+	</data>
+	<data name="ProfileGists" xml:space="preserve">
+		<value>Gists</value>
+	</data>
+	<data name="ProfileApiRateLimit" xml:space="preserve">
+		<value>API Rate Limit</value>
+	</data>
+	<data name="ProfileCoreApi" xml:space="preserve">
+		<value>Core API</value>
+	</data>
+	<data name="ProfileSearchApi" xml:space="preserve">
+		<value>Search API</value>
+	</data>
+	<data name="LoadingStars" xml:space="preserve">
+		<value>Loading starred repositories...</value>
+	</data>
+	<data name="NetworkError" xml:space="preserve">
+		<value>Network Error</value>
+	</data>
+	<data name="RequestFailed" xml:space="preserve">
+		<value>Request Failed</value>
+	</data>
+	<data name="Retry" xml:space="preserve">
+		<value>Retry</value>
+	</data>
+	<data name="PermissionDenied" xml:space="preserve">
+		<value>Permission Denied</value>
+	</data>
+	<data name="AuthFailed" xml:space="preserve">
+		<value>Authentication Failed</value>
+	</data>
+	<data name="ErrorLoadStars" xml:space="preserve">
+		<value>Failed to load starred repos: {0}</value>
+	</data>
+	<data name="GhNetworkError" xml:space="preserve">
+		<value>Network error occurred</value>
+	</data>
+	<data name="GhUnauthorized" xml:space="preserve">
+		<value>Unauthorized - check your token</value>
+	</data>
+	<data name="GhNotFound" xml:space="preserve">
+		<value>Resource not found</value>
+	</data>
+	<data name="GhRateLimited" xml:space="preserve">
+		<value>Rate limited by GitHub API</value>
+	</data>
+	<data name="GhServerError" xml:space="preserve">
+		<value>GitHub server error</value>
+	</data>
+	<data name="GhParseError" xml:space="preserve">
+		<value>Failed to parse API response</value>
+	</data>
+	<data name="GhForbidden" xml:space="preserve">
+		<value>Access forbidden - token lacks required permissions</value>
+	</data>
+	<data name="GhHttpError" xml:space="preserve">
+		<value>HTTP request failed with unexpected status</value>
+	</data>
+	<data name="GhUnknownError" xml:space="preserve">
+		<value>Unknown error (code {0})</value>
+	</data>
+	<data name="ServerResponse" xml:space="preserve">
+		<value>Server response: {0}</value>
+	</data>
+	<data name="Refresh" xml:space="preserve">
+		<value>Refresh</value>
+	</data>
+	<data name="MarkAllRead" xml:space="preserve">
+		<value>Mark all as read</value>
+	</data>
+	<data name="ErrorLoadProfile" xml:space="preserve">
+		<value>Failed to load profile: {0}</value>
+	</data>
+	<data name="InvalidRepoName" xml:space="preserve">
+		<value>Invalid repository name format.</value>
+	</data>
+	<data name="ErrorLoadRepoDetails" xml:space="preserve">
+		<value>Failed to load repository details: {0}</value>
+	</data>
+	<data name="LoadingRepoDetails" xml:space="preserve">
+		<value>Loading repository details...</value>
+	</data>
+	<data name="OpenInBrowser" xml:space="preserve">
+		<value>Open in Browser</value>
+	</data>
+	<data name="About" xml:space="preserve">
+		<value>About</value>
+	</data>
+	<data name="AboutDescription" xml:space="preserve">
+		<value>Usage guide and project info</value>
+	</data>
+	<data name="ClassicTokenNote" xml:space="preserve">
+		<value>Notifications only supports classic (personal access) tokens. Fine-grained tokens are not supported for the notifications API.</value>
+	</data>
+	<data name="ProjectRepo" xml:space="preserve">
+		<value>View on GitHub</value>
+	</data>
+	<data name="CheckUpdates" xml:space="preserve">
+		<value>Check for Updates</value>
+	</data>
+</root>

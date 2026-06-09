@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Page
+    x:Class="StarSorter.Views.ShellPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:local="using:StarSorter.Views"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+
+    <Grid>
+        <TitleBar
+            x:Name="titleBar"
+            Title="{x:Bind ViewModel.GetLocalizedString('AppTitle'), Mode=OneWay}"
+            Margin="32,0,0,0"
+            VerticalAlignment="Top">
+            <TitleBar.IconSource>
+                <ImageIconSource ImageSource="/Assets/Square44x44Logo.png" />
+            </TitleBar.IconSource>
+            <TitleBar.Content>
+                <AutoSuggestBox 
+                    x:Name="SearchBox"
+                    Width="360" 
+                    VerticalAlignment="Center" 
+                    PlaceholderText="Search..." 
+                    QueryIcon="Find" 
+                    QuerySubmitted="SearchBox_QuerySubmitted" />
+            </TitleBar.Content>
+            <TitleBar.RightHeader>
+                <Button 
+                        x:Name="RefreshButton"
+                        Content="&#xE72C;"
+                        VerticalAlignment="Center"
+                        FontFamily="Segoe Fluent Icons"
+                        Click="RefreshButton_Click" />
+            </TitleBar.RightHeader>
+        </TitleBar>
+        <NavigationView
+            x:Name="NavView"
+            BackRequested="NavView_BackRequested"
+            Canvas.ZIndex="0"
+            CompactModeThresholdWidth="480"
+            ExpandedModeThresholdWidth="1280"
+            IsBackButtonVisible="Visible"
+            IsBackEnabled="{x:Bind ViewModel.IsBackEnabled, Mode=OneWay}"
+            PaneDisplayMode="{x:Bind ViewModel.PaneDisplayMode, Mode=OneWay}"
+            SelectedItem="{x:Bind ViewModel.SelectedNavItem, Mode=TwoWay}"
+            SelectionChanged="NavView_SelectionChanged">
+            <NavigationView.MenuItems>
+                <NavigationViewItem
+                    Content="{x:Bind ViewModel.GetLocalizedString('Stars'), Mode=OneWay}"
+                    Icon="Home"
+                    Tag="Stars" />
+
+
+                <!-- TODO: 暂时隐藏 - ExplorePage 尚未完善
+                <NavigationViewItemSeparator />
+                <NavigationViewItem
+                    Content="{x:Bind ViewModel.GetLocalizedString('Explore'), Mode=OneWay}"
+                    Icon="Globe"
+                    Tag="Explore" />
+                -->
+                <NavigationViewItem
+                    Content="{x:Bind ViewModel.GetLocalizedString('Notifications'), Mode=OneWay}"
+                    Icon="Message"
+                    Tag="Notifications" />
+
+            </NavigationView.MenuItems>
+            <NavigationView.Resources>
+                <Thickness x:Key="NavigationViewContentMargin">0,48,0,0</Thickness>
+                <Style TargetType="NavigationViewItem">
+                    <Setter Property="FontSize" Value="16" />
+                    <Setter Property="Padding" Value="12,8,12,8" />
+                </Style>
+            </NavigationView.Resources>
+            <Frame x:Name="ContentFrame" />
+            <NavigationView.FooterMenuItems>
+                <NavigationViewItem
+                    Content="{x:Bind ViewModel.GetLocalizedString('Profile'), Mode=OneWay}"
+                    Icon="People"
+                    Tag="Profile" />
+            </NavigationView.FooterMenuItems>
+
+        </NavigationView>
+    </Grid>
+</Page>
